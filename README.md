@@ -31,3 +31,20 @@
 3. 緯度経度情報について<br>
     - SYNOPには緯度経度情報が含まれないません。SYNOPについては、定置地上観測所の識別コードをキーにして、国際地点番号表から緯度経度情報を求めています。<br>
 
+## 地域気象観測システム（アメダス）の観測データについて
+1. データソースについて
+    気象庁アメダスのホームページはその要素がjson形式で構成されており、アメダス観測データもその一部。よってアメダス観測データの取得は、その構成要素の中から表示する観測データに相当するjsonのURLを直接指定して取得する。このjsonの構造に関する仕様は公開されておらず、将来のデータの取得方法については非保証であり、ホームページの改善等により任意のタイミングで変わる可能性がある。
+    - 地点リスト https://www.jma.go.jp/bosai/amedas/const/amedastable.json
+    - 最新データの時刻 https://www.jma.go.jp/bosai/amedas/data/latest_time.txt
+    - 観測データ（年月日時毎のjsonデータ） https://www.jma.go.jp/bosai/amedas/data/map/20241220090000.json<br>
+        ※およそ10日ほど前までのデータが取得できる。
+2. アメダス観測データの解析処理（parse）について
+    データのタイムゾーンはJSTなので、SYNOPプロット図に重ねる際は、取得するデータをUTCに換算する必要がある。<br>
+    アメダスの風向データは16方位で格納されている。
+3. 緯度経度情報<br>
+    アメダス観測データ（json）にも緯度経度情報は含まれていません。先ずアメダス観測地点リストを取得して、そこから緯度経度情報を求めています。<br>
+
+## プロット図の描画について
+データの可視化は Metpy の PlotObs class と MapPanel classを使用します。最初に PlotObs インスタンスを作成・セットし、そのあと MapPanel で図法の指定やプロット図の体裁を指定します。詳細は MetpyのTutorialを参照ください。https://unidata.github.io/MetPy/latest/tutorials/declarative_tutorial.html#
+
+## 謝辞及び免責
