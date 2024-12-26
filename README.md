@@ -48,3 +48,20 @@
 データの可視化は Metpy の PlotObs class と MapPanel classを使用します。最初に PlotObs インスタンスを作成・セットし、そのあと MapPanel で図法の指定やプロット図の体裁を指定します。詳細は MetpyのTutorialを参照ください。https://unidata.github.io/MetPy/latest/tutorials/declarative_tutorial.html#
 
 ## 謝辞及び免責
+本コードの実装に際しては、次のサイトを参考にさせていただきました。ありがとうございます。
+   - 天気図の世界 https://note.com/rkurora/n/n0a9eb8d4d08e
+   - Pythonによる気象データサイエンス　https://www.dpac.dpri.kyoto-u.ac.jp/enomoto/pymetds/JSON.html
+
+実況気象通報式のデータは教育・研究目的で提供されているものです。本コードによるプロット図の商用利用はご遠慮ください。<br>
+アメダス実況観測データの取得方法やjson構造は仕様が公開されていません。将来に渡って動作を保証するものではありません。<br>
+本コードによって作成したプロット図は、正確性・完全性を保証するものではございません。また本コードの利用に際しては、その利用方法に応じて著作権やその他の知的財産権を侵害しないことを確認のうえご利用ください。当方はこれに起因する損害について一切の責任を負いません。<br>
+
+## 仕様書及びAPI reference
+* 仕様書関連（気象庁サイト）<br>
+    - 国際気象通報式 https://www.jma.go.jp/jma/kishou/books/tsuhoshiki/tsuhoshiki.html
+    - 国際地点番号表 https://www.jma.go.jp/jma/kishou/books/station/station.html
+* 主なライブラリのAPI reference<br>
+    - Metpy https://unidata.github.io/MetPy/latest/api/index.html
+    - Pymetdecoder https://pypi.org/project/pymetdecoder/
+    - Cartopy https://scitools.org.uk/cartopy/docs/latest/reference/index.html
+    - Matplotlib https://matplotlib.org/stable/api/index.html
